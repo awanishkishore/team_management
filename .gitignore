@@ -1,0 +1,5 @@
+.history*
+**__pycache__**
+.vscode/launch.json
+.vscode/**
+team_management.code-workspace
