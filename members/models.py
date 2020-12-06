@@ -13,7 +13,8 @@ class TeamMember(TimeStampedModel):
     phone_no = models.CharField(max_length=15, null=True)
     email = models.EmailField(null=True)
     role = models.CharField(choices=RoleChoices.choices, max_length=20, null=True)
+    is_active = models.BooleanField(default=True)
 
 
     def __str__(self) -> str:
-        return self.first_name + ' ' + self.last_name
+        return self.email
