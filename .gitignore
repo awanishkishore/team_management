@@ -3,3 +3,4 @@
 .vscode/launch.json
 .vscode/**
 team_management.code-workspace
+docker-compose.debug.yml
