@@ -4,3 +4,4 @@
 .vscode/**
 team_management.code-workspace
 docker-compose.debug.yml
+.env
