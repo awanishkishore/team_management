@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  db:
+    container_name: team_db
+    image: postgres:latest
+    env_file:
+      - .env
+    command: postgres -c listen_addresses='*'
+    volumes:
+      - team_db:/var/lib/postgresql/data/
+    networks:
+      - team_default
+
+  web:
+    container_name: team_service
+    image: team_service
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/src
+      - static_volume:/src/static
+      - media_volume:/src/media
+    networks:
+      - team_default
+    depends_on:
+      - db
+
+networks:
+  team_default:
+
+volumes:
+  static_volume:
+  media_volume:
+  team_db:
